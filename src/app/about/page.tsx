@@ -1,0 +1,39 @@
+import Image from "next/image";
+import styles from "../page.module.css";
+import { Header } from "../components/Header";
+import { HeadLine } from "../components/HeadLine";
+import { Main } from "../components/Main";
+import { Links } from "../components/Links";
+import { Footer } from "../components/Footer";
+
+
+export default function About() {
+  return (
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <Header
+        />
+        <HeadLine
+          title="About Page"
+        />
+        <Image
+          className={styles.logo}
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <Main
+          listFirst="Get started by editing"
+          fileName="src/app/page.tsx"
+          listSecond="Save and see your changes instantly."
+        />
+        <Links
+        />
+        <Footer
+        />
+      </main>
+    </div>
+  );
+}
