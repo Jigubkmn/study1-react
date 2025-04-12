@@ -2,10 +2,9 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import { Header } from "../components/Header";
 import { HeadLine } from "../components/HeadLine";
-import { Main } from "../components/Main";
+import { Main } from "../components/Main/Main";
 import { Links } from "../components/Links";
-import { Footer } from "../components/Footer";
-
+import { Footer } from "../components/Footer/Footer";
 
 export default function About() {
   return (
@@ -26,7 +25,7 @@ export default function About() {
         />
         <Main
           listFirst="Get started by editing"
-          fileName="src/app/page.tsx"
+          fileName="src/app/about/page.tsx"
           listSecond="Save and see your changes instantly."
         />
         <Links
