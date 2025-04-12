@@ -1,3 +1,5 @@
+"use client"
+
 type Props = {
   listFirst: string;
   fileName: string;
@@ -6,7 +8,8 @@ type Props = {
 
 export function Main({listFirst, fileName, listSecond} :Props) {
   return (
-    <ol>
+    <div>
+      <ol>
       <li>
         {listFirst}
         <code>
@@ -18,5 +21,10 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
+    <button
+      onClick={() => alert(123)}
+    >
+      ボタン</button>
+    </div>
   );
 }
