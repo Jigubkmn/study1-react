@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "../page.module.css";
-import { Header } from "../components/Header";
-import { HeadLine } from "../components/HeadLine";
+import { Header } from "../components/Header/Header";
+import { HeadLine } from "../components/HeadLine/HeadLine";
 import { Main } from "../components/Main/Main";
-import { Links } from "../components/Links";
+import { Links } from "../components/Links/Links";
 import { Footer } from "../components/Footer/Footer";
 
 export default function About() {
