@@ -1,10 +1,10 @@
 import Image from "next/image";
-import styles from "../page.module.css";
-import { Header } from "../components/Header/Header";
-import { HeadLine } from "../components/HeadLine/HeadLine";
-import { Main } from "../components/Main/Main";
-import { Links } from "../components/Links/Links";
-import { Footer } from "../components/Footer/Footer";
+import styles from "src/app/page.module.css";
+import { Header } from "src/app/components/Header/Header";
+import { HeadLine } from "src/app/components/HeadLine/HeadLine";
+import { Main } from "src/app/components/Main/Main";
+import { Links } from "src/app/components/Links/Links";
+import { Footer } from "src/app/components/Footer/Footer";
 
 export default function About() {
   return (
