@@ -1,10 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Main } from "./components/Main";
-import { Header } from "./components/Header";
-import { Links } from "./components/Links";
-import { Footer } from "./components/Footer";
-import { HeadLine } from "./components/HeadLine";
+import { Header } from "@/app/components/Header/Header";
+import { HeadLine } from "@/app/components/HeadLine/HeadLine";
+import { Main } from "@/app/components/Main/Main";
+import { Links } from "@/app/components/Links/Links";
+import { Footer } from "@/app/components/Footer/Footer";
 
 export default function Home() {
   return (
