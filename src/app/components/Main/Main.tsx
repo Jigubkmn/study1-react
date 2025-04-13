@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type Props = {
   listFirst: string;
@@ -12,22 +12,24 @@ type Props = {
 export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
 
-  const handleClick = () => {
-    setCount((count) => count + 1);
-  };
+  const handleClick =  useCallback( () => {
+    setCount((count) => count + 1)
+  }, []);
 
   console.log(count);
 
 
   useEffect(() => {
+    console.log("マウント時", count);
     // Mainコンポーネントがレンダリングされる時に実行される。
     document.body.style.background = "lightblue"
-    console.log("マウント時");
 
     return () => {
-    console.log("アンマウント時");
+      console.log("アンマウント時", count);
+      document.body.style.background = ""
     }
-  }, [])
+  }, [count])
+
   return (
     <div>
       <ol>
