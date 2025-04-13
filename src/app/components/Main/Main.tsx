@@ -11,7 +11,8 @@ type Props = {
 
 export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
-  const [text, settext] = useState("");
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
   const handleClick =  useCallback( () => {
     console.log(count);
@@ -21,7 +22,7 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   }, [count]);
 
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    settext(e.target.value);
+    setText(e.target.value);
   }, []);
 
 
@@ -48,12 +49,17 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
-    <h1>{count}</h1>
+    {/* <h1>{count}</h1> */}
+    {/* JSX内ではif文を書けない */}
+    {isShow ? <h1>{count}</h1>: null}
     <button
       onClick={handleClick}
     >
       ボタン
     </button>
+    <button onClick={() => {
+      setIsShow(false)
+    }}>非表示</button>
     <input type="text"
     value={text}
     onChange={handleInputChange}
