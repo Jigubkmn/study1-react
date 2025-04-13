@@ -20,6 +20,9 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     }
   }, [count]);
 
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    settext(e.target.value);
+  }, []);
 
 
   useEffect(() => {
@@ -53,9 +56,7 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     </button>
     <input type="text"
     value={text}
-    onChange={e => {
-      settext(e.target.value);
-    }}
+    onChange={handleInputChange}
     />
     </div>
   );
