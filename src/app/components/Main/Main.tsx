@@ -20,12 +20,10 @@ export function Main({listFirst, fileName, listSecond} :Props) {
 
 
   useEffect(() => {
-    console.log("マウント時", count);
     // Mainコンポーネントがレンダリングされる時に実行される。
     document.body.style.background = "lightblue"
 
     return () => {
-      console.log("アンマウント時", count);
       document.body.style.background = ""
     }
   }, [count])
