@@ -7,6 +7,12 @@ type Props = {
 }
 
 export function Main({listFirst, fileName, listSecond} :Props) {
+
+  function handleClick (e: React.MouseEvent<HTMLAnchorElement>){
+    console.log(e.target);
+    e.preventDefault()
+  }
+
   return (
     <div>
       <ol>
@@ -21,12 +27,18 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
-    <button
+    {/* <button
       onClick={function() {
         alert(123)
       }}
     >
-      ボタン</button>
+      ボタン</button> */}
+    <a
+      href="/about"
+      onClick={handleClick}
+    >
+      ボタン
+    </a>
     </div>
   );
 }
