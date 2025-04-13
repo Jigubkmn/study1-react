@@ -11,6 +11,7 @@ type Props = {
 
 export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
+  const [text, settext] = useState("");
 
   const handleClick =  useCallback( () => {
     console.log(count);
@@ -50,6 +51,12 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     >
       ボタン
     </button>
+    <input type="text"
+    value={text}
+    onChange={e => {
+      settext(e.target.value);
+    }}
+    />
     </div>
   );
 }
