@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 type Props = {
   listFirst: string;
@@ -16,6 +16,16 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     e.preventDefault()
   }, []);
 
+  useEffect(() => {
+    // Mainコンポーネントがレンダリングされる時に実行される。
+    document.body.style.background = "lightblue"
+    console.log("マウント時");
+
+    return () => {
+    console.log("アンマウント時");
+    }
+  }, [])
+
   return (
     <div>
       <ol>
@@ -30,14 +40,9 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
-    {/* <button
-      onClick={function() {
-        alert(123)
-      }}
-    >
-      ボタン</button> */}
     <a
       href="/about"
+      // onClick={handleClick}
       onClick={handleClick}
     >
       ボタン
