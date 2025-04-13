@@ -58,8 +58,16 @@ export function Main({listFirst, fileName, listSecond} :Props) {
       ボタン
     </button>
     <button onClick={() => {
-      setIsShow(false)
-    }}>非表示</button>
+      setIsShow((isShow) => {
+        if (isShow === true) {
+          return false;
+        }else {
+          return true;
+        }
+      })
+    }}>
+      {isShow ? "非表示" : "表示" }
+    </button>
     <input type="text"
     value={text}
     onChange={handleInputChange}
