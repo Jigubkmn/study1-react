@@ -25,6 +25,13 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     setText(e.target.value);
   }, []);
 
+  const handleDisplay = useCallback(() => {
+    setIsShow((isShow) => {
+      // return isShow ? false : true;
+      return !isShow;
+    })
+  }, []);
+
 
   useEffect(() => {
     // Mainコンポーネントがレンダリングされる時に実行される。
@@ -49,20 +56,13 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
-    {/* <h1>{count}</h1> */}
-    {/* JSX内ではif文を書けない */}
     {isShow ? <h1>{count}</h1>: null}
     <button
       onClick={handleClick}
     >
       ボタン
     </button>
-    <button onClick={() => {
-      setIsShow((isShow) => {
-        // return isShow ? false : true;
-        return !isShow;
-      })
-    }}>
+    <button onClick={handleDisplay}>
       {isShow ? "非表示" : "表示" }
     </button>
     <input type="text"
