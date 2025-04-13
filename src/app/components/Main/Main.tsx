@@ -59,11 +59,8 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     </button>
     <button onClick={() => {
       setIsShow((isShow) => {
-        if (isShow === true) {
-          return false;
-        }else {
-          return true;
-        }
+        // return isShow ? false : true;
+        return !isShow;
       })
     }}>
       {isShow ? "非表示" : "表示" }
