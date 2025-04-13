@@ -13,9 +13,7 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   const [foo, setFoo] = useState(1);
 
   const handleClick = () => {
-    setFoo(function (foo) {
-      return foo + 1;
-    });
+    setFoo((foo) => foo + 1);
   };
 
   console.log(foo);
