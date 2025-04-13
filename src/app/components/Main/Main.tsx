@@ -1,6 +1,7 @@
 "use client"
 
-import { useCallback } from "react";
+import { useEffect } from "react";
+// import { useCallback, useEffect } from "react";
 
 type Props = {
   listFirst: string;
@@ -11,10 +12,14 @@ type Props = {
 export function Main({listFirst, fileName, listSecond} :Props) {
   // ページ遷移時に再描画される。
   // 品質が少し落ちる
-  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    console.log(e.target);
-    e.preventDefault()
-  }, []);
+  // const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   console.log(e.target);
+  //   e.preventDefault()
+  // }, []);
+
+  useEffect(() => {
+    document.body.style.background = "lightblue"
+  }, [])
 
   return (
     <div>
@@ -36,12 +41,13 @@ export function Main({listFirst, fileName, listSecond} :Props) {
       }}
     >
       ボタン</button> */}
-    <a
+    {/* <a
       href="/about"
+      // onClick={handleClick}
       onClick={handleClick}
     >
       ボタン
-    </a>
+    </a> */}
     </div>
   );
 }
