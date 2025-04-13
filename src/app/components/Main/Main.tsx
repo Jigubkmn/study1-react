@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   listFirst: string;
@@ -8,13 +8,18 @@ type Props = {
   listSecond: string;
 }
 
+
 export function Main({listFirst, fileName, listSecond} :Props) {
-  // ページ遷移時に再描画される。
-  // 品質が少し落ちる
-  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    console.log(e.target);
-    e.preventDefault()
-  }, []);
+  const [foo, setFoo] = useState(1);
+
+  const handleClick = () => {
+    setFoo(function (foo) {
+      return foo + 1;
+    });
+  };
+
+  console.log(foo);
+
 
   useEffect(() => {
     // Mainコンポーネントがレンダリングされる時に実行される。
@@ -25,7 +30,6 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     console.log("アンマウント時");
     }
   }, [])
-
   return (
     <div>
       <ol>
@@ -40,13 +44,12 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
-    <a
-      href="/about"
-      // onClick={handleClick}
+    <h1>{foo}</h1>
+    <button
       onClick={handleClick}
     >
       ボタン
-    </a>
+    </button>
     </div>
   );
 }
