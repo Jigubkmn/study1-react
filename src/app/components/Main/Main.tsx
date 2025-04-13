@@ -10,13 +10,13 @@ type Props = {
 
 
 export function Main({listFirst, fileName, listSecond} :Props) {
-  const [foo, setFoo] = useState(1);
+  const [count, setCount] = useState(1);
 
   const handleClick = () => {
-    setFoo((foo) => foo + 1);
+    setCount((count) => count + 1);
   };
 
-  console.log(foo);
+  console.log(count);
 
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export function Main({listFirst, fileName, listSecond} :Props) {
         {listSecond}
       </li>
     </ol>
-    <h1>{foo}</h1>
+    <h1>{count}</h1>
     <button
       onClick={handleClick}
     >
