@@ -13,10 +13,12 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
 
   const handleClick =  useCallback( () => {
-    setCount((count) => count + 1)
-  }, []);
+    console.log(count);
+    if (count < 10) {
+      setCount((count) => count + 1)
+    }
+  }, [count]);
 
-  console.log(count);
 
 
   useEffect(() => {
