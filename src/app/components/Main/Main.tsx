@@ -22,7 +22,9 @@ export function Main({listFirst, fileName, listSecond} :Props) {
       </li>
     </ol>
     <button
-      onClick={() => alert(123)}
+      onClick={function() {
+        alert(123)
+      }}
     >
       ボタン</button>
     </div>
