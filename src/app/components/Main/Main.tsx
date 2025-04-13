@@ -18,6 +18,7 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   // }, []);
 
   useEffect(() => {
+    // Mainコンポーネントがレンダリングされる時に実行される。
     document.body.style.background = "lightblue"
   }, [])
 
