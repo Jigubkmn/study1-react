@@ -13,7 +13,7 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useState<string[]>([]);
 
   const handleClick =  useCallback( () => {
     console.log(count);
@@ -34,10 +34,14 @@ export function Main({listFirst, fileName, listSecond} :Props) {
 
   const handleAdd = useCallback(() => {
     setArray((prevArray) => {
-      const newArray = [...prevArray, 1]
+      if (prevArray.some((item) => item === text)) {
+        alert("同じ要素が既に存在します。");
+        return prevArray;
+      }
+      const newArray = [...prevArray, text]
       return newArray;
     });
-  }, [])
+  }, [text])
 
   useEffect(() => {
     // Mainコンポーネントがレンダリングされる時に実行される。
