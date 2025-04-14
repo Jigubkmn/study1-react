@@ -13,11 +13,12 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleClick =  useCallback( () => {
     console.log(count);
     if (count < 10) {
-      setCount((count) => count + 1)
+      setCount((prevCount) => prevCount + 1)
     }
   }, [count]);
 
@@ -26,12 +27,17 @@ export function Main({listFirst, fileName, listSecond} :Props) {
   }, []);
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => {
-      // return isShow ? false : true;
-      return !isShow;
+    setIsShow((prevIsShow) => {
+      return !prevIsShow;
     })
   }, []);
 
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      const newArray = [...prevArray, 1]
+      return newArray;
+    });
+  }, [])
 
   useEffect(() => {
     // Mainコンポーネントがレンダリングされる時に実行される。
@@ -66,9 +72,16 @@ export function Main({listFirst, fileName, listSecond} :Props) {
       {isShow ? "非表示" : "表示" }
     </button>
     <input type="text"
-    value={text}
-    onChange={handleInputChange}
+      value={text}
+      onChange={handleInputChange}
     />
+    <ul>{array.map(item => {
+      return (
+        <div key={item}>{item}</div>
+      )
+    })}
+    </ul>
+    <button onClick={handleAdd}>追加</button>
     </div>
   );
 }
