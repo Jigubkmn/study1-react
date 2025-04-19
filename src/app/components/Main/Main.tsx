@@ -32,6 +32,14 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     })
   }, []);
 
+  const userInfo = {
+    name: "ジグ",
+    age: 29
+  }
+
+  const tanaka = userInfo
+  console.log(tanaka);
+
   const handleAdd = useCallback(() => {
     setArray((prevArray) => {
       if (prevArray.some((item) => item === text)) {
