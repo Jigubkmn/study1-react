@@ -8,9 +8,12 @@ type Props = {
   listSecond: string;
 }
 
-const useCounter = () => {
+
+export function Main({listFirst, fileName, listSecond} :Props) {
   const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState<string[]>([]);
 
   const handleClick =  useCallback( () => {
     console.log(count);
@@ -19,22 +22,23 @@ const useCounter = () => {
     }
   }, [count]);
 
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  }, []);
+
   const handleDisplay = useCallback(() => {
     setIsShow((prevIsShow) => {
       return !prevIsShow;
     })
   }, []);
 
-  return { count, isShow, handleClick, handleDisplay }
-};
+  const userInfo = {
+    name: "ジグ",
+    age: 29
+  }
 
-const useInputArray = () => {
-  const [text, setText] = useState("");
-  const [array, setArray] = useState<string[]>([]);
-
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  }, []);
+  const tanaka = userInfo
+  console.log(tanaka);
 
   const handleAdd = useCallback(() => {
     setArray((prevArray) => {
@@ -46,13 +50,6 @@ const useInputArray = () => {
       return newArray;
     });
   }, [text])
-
-  return {text, array, handleInputChange, handleAdd};
-};
-
-export function Main({listFirst, fileName, listSecond} :Props) {
-  const {count, isShow, handleClick, handleDisplay} = useCounter();
-  const {text, array, handleInputChange, handleAdd} = useInputArray();
 
   useEffect(() => {
     // Mainコンポーネントがレンダリングされる時に実行される。
@@ -86,7 +83,6 @@ export function Main({listFirst, fileName, listSecond} :Props) {
     <button onClick={handleDisplay}>
       {isShow ? "非表示" : "表示" }
     </button>
-
     <input type="text"
       value={text}
       onChange={handleInputChange}
